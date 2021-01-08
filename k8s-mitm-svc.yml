@@ -21,4 +21,15 @@ spec:
   type: ClusterIP
   externalIPs:
     - 1.1.1.1
-#create pod with label app: echoserver to back the service
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mitm-pod
+  namespace: kubeproxy-mitm
+  labels:
+    app: echoserver
+spec:
+  containers:
+  - name: normal-container
+    image: nginx:latest
