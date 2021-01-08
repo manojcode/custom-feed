@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kubeproxy-mitm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mitm-externalip
+  namespace: kubeproxy-mitm
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  - name: https
+    port: 443
+    targetPort: 8443
+  selector:
+    app: echoserver
+  type: ClusterIP
+  externalIPs:
+    - 1.1.1.1
+#create pod with label app: echoserver to back the service
