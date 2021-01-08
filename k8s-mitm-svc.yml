@@ -31,5 +31,7 @@ metadata:
     app: echoserver
 spec:
   containers:
-  - name: normal-container
+  - name: webserver
     image: nginx:latest
+    ports:
+    - containerPort: 80
