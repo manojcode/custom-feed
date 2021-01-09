@@ -1,4 +1,3 @@
-# Network set for Embargo countries. 
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkSet
 metadata:
